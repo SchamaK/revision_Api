@@ -153,25 +153,25 @@
           <table class="table table-striped table-responsive">
             <thead>
               <tr>
-                <th class="text-center">Code</th>
-                <th class="text-center">Libelle</th>
-                <th class="text-center">Prix Achat</th>
-                <th class="text-center">Prix de vente </th>
-                <th class="text-center">BoutiqueId </th>
-                <th class="text-center">CategorieArticleId</th>
-                <th class="text-center"> Actions</th>
+                <th class="text-center border border-5">Code</th>
+                <th class="text-center border border-5">Libelle</th>
+                <th class="text-center border border-5">Prix Achat</th>
+                <th class="text-center border border-5"> Prix de vente </th>
+                <th class="text-center border border-5">BoutiqueId </th>
+                <th class="text-center border border-5">CategorieArticleId</th>
+                <th class="text-center border border-5"> Actions</th>
               </tr>
             </thead>
             <tbody *ngFor="let item of tabArt; let indice = index">
               <tr>
-                <td> {{item.code}} </td>
-                <td> {{item.libelle}} </td>
-                <td> {{item.prixAchat}} </td>
-                <td> {{item.prixVente}} </td>
-                <td> {{item.boutiqueId}} </td>
-                <td>{{item.categorieArticleId}} </td>
-                <td>
-                  <span><button type="button" class="btn btn-warning" (click)="Upd(item)"> Modifier</button> </span>
+                <td class="border border-2 text-center"> {{item.code}} </td>
+                <td class="border border-2 text-center"> {{item.libelle}} </td>
+                <td class="border border-2 text-center"> {{item.prixAchat}} </td>
+                <td class="border border-2 text-center"> {{item.prixVente}} </td>
+                <td class="border border-2 text-center"> {{item.boutiqueId}} </td>
+                <td class="border border-2 text-center">{{item.categorieArticleId}}</td>
+                <td class="border border-2 text-center">
+                  <span class="p-4"><button type="button" class="btn btn-warning" (click)="Upd(item)"> Modifier</button> </span>
                   <span> <button type="button" class="btn btn-danger" (click)="Del(item.id)">Supprimer</button> </span>
                 </td>
               </tr>

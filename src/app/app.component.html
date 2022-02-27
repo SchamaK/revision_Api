@@ -1,15 +1,5 @@
 
 <router-outlet></router-outlet>
-
-<div class="container text-center">
-  <div class="row">
-    <div class="col">
-      <h1 class="pt-5">
-        Formulaire
-      </h1>
-    </div>
-  </div>
-</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col">
@@ -17,22 +7,25 @@
         <div class="row">
           <div class="col">
             <div class="card mt-5">
-              <h5 class="card-header text-white bg-info text-center">S' enregitrer </h5>
+              <h5 class="card-header text-white bg-info text-center">Enregitrer article </h5>
               <div class="card-body">
                 <form (ngSubmit)="saveData(registerForm)" #registerForm="ngForm" >
                   <div class="row">
 
                     <div class=" col-md-6 mb-3">
                       <label id="code" for="code"> Code </label>
-                      <input id="code" name="obj.code" type="text" class="form-control" placeholder="code" [(ngModel)]="obj.code"
-                        name="code" required maxlength="10" #codeVar="ngModel"
+                      <input id="code" name="obj.code" type="text" class="form-control" placeholder="M52-478" [(ngModel)]="obj.code"
+                        name="code" required maxlength="7" minlength="4" #codeVar="ngModel"
                         [ngClass]="{'is-invalid' :codeVar.touched  &&! codeVar.valid}" />
                       <div class="invalid-feedback">
                         <span *ngIf="codeVar.errors ?.['required']">
                           Entrer votre code
                         </span>
-                        <span *ngIf=" codeVar.errors ?.['maxlength'] ">
+                        <span *ngIf=" codeVar.errors ?.['maxlength']">
                           Entrer au plus 2 carracteres
+                        </span>
+                        <span *ngIf=" codeVar.errors ?.['minlength']">
+                          Entrer au plus 3 carracteres
                         </span>
                       </div>
                     </div>
@@ -40,23 +33,24 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="name" for="name">Libelle</label>
-                      <input id="name" name="name" class="form-control" placeholder="Nom" [(ngModel)]="obj.libelle"
-                        name="name" required minlength="3" appForbiddenName="name" pattern="" #nameVar="ngModel"
+                      <input id="name" name="name" class="form-control"  type="text" placeholder="Telephone" [(ngModel)]="obj.libelle"
+                        name="name" required minlength="3" appForbiddenName="name" #nameVar="ngModel"
                         [ngClass]="{'is-invalid' :nameVar.touched  &&! nameVar.valid}" />
                       <div class="invalid-feedback">
                         <span *ngIf="nameVar.errors ?.['required']">
                           Entrer votre nom
                         </span>
                         <span *ngIf=" nameVar.errors ?.['minlength'] ">
-                          Entrer au plus 3 carracteres
+                          Entrer plus 3 carracteres
                         </span>
+
                       </div>
                     </div>
 
                     <div class=" col-md-6 mb-3">
-                      <label id="name" for="email"> le Prix d achat</label>
-                      <input id="prixAchat" name="prixAchat" type="prixAchat" class="form-control" placeholder="5000F"
-                        [(ngModel)]="obj.prixAchat" name="prixAchat" required
+                      <label id="prixAchat" for="prixAchat"> le Prix d achat</label>
+                      <input id="prixAchat" name="prixAchat" type="number" class="form-control" placeholder="50000"
+                        [(ngModel)]="obj.prixAchat" name="prixAchat" required pattern="[0-9]*"
                         prixAchat #prixAchatVar="ngModel" [ngClass]="{'is-invalid' :prixAchatVar.touched  &&! prixAchatVar.valid}" />
                       <div class="invalid-feedback">
                         <span *ngIf="prixAchatVar.errors ?.['required']">
@@ -65,28 +59,34 @@
                         <span *ngIf="prixAchatVar.errors ?.['prixAchat']">
                           le prix d achat n'est pas valid
                         </span>
+                        <span *ngIf="prixAchatVar.errors ?.['pattern']">
+                          le prix est en chiffre
+                        </span>
                       </div>
                     </div>
 
                     <div class=" col-md-6 mb-3">
                       <label id="name" for="prixVente"> Entrer le prix de vente</label>
-                      <input id="prixVente" name="prixVente" type="prixVente" class="form-control"
+                      <input id="prixVente" name="prixVente" type="number" class="form-control"
                         placeholder="5000" [(ngModel)]="obj.prixVente" name="prixVente" required
-                        prixVente #localisationVar="ngModel"
-                        [ngClass]="{'is-invalid' :localisationVar.touched  &&! localisationVar.valid}" />
+                        prixVente #prixVenteVar="ngModel" pattern="[0-9]*"
+                        [ngClass]="{'is-invalid' :prixVenteVar.touched  &&! prixVenteVar.valid}" />
                       <div class="invalid-feedback">
-                        <span *ngIf="localisationVar.errors ?.['required']">
+                        <span *ngIf="prixVenteVar.errors ?.['required']">
                           Entrer le prix de vente
                         </span>
-                        <span *ngIf=" localisationVar.errors ?.['prixVente']">
+                        <span *ngIf=" prixVenteVar.errors ?.['prixVente']">
                           la prix de Vente n'est pas valid
+                        </span>
+                        <span *ngIf="prixVenteVar.errors ?.['pattern']">
+                          le prix est en chiffre
                         </span>
                       </div>
                     </div>
 
                    <div class=" col-md-6 mb-3">
                       <label id="name" for="boutiqueId">Id de la boutique</label>
-                      <input id="boutiqueId" name="listStud.boutiqueId" type="text" class="form-control" placeholder="boutiqueId"
+                      <input id="boutiqueId" name="listStud.boutiqueId" type="number" class="form-control" placeholder="boutiqueId"
                         [(ngModel)]="obj.boutiqueId" name="boutiqueId" required maxlength="2" #boutiqueIdVar="ngModel"
                         [ngClass]="{'is-invalid' :boutiqueIdVar.touched  &&! boutiqueIdVar.valid}" />
                       <div class="invalid-feedback">
@@ -102,7 +102,7 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="name" for="email">Categorie Id</label>
-                      <input id="prixAchat" name="categorieArticleId" type="text" class="form-control" placeholder="01"
+                      <input id="prixAchat" name="categorieArticleId" type="number" class="form-control" placeholder="01"
                         [(ngModel)]="obj.categorieArticleId" name="prixAchat" required prixAchat #categorieArticleIdVar="ngModel"
                         [ngClass]="{'is-invalid' :categorieArticleIdVar.touched  &&! categorieArticleIdVar.valid}" />
                       <div class="invalid-feedback">

@@ -86,9 +86,11 @@
 
                    <div class=" col-md-6 mb-3">
                       <label id="name" for="boutiqueId">Id de la boutique</label>
-                      <input id="boutiqueId" name="boutiqueId" type="number" class="form-control" placeholder="boutiqueId"
-                        [(ngModel)]="obj.boutiqueId" name="boutiqueId" required maxlength="2" #boutiqueIdVar="ngModel"
-                        [ngClass]="{'is-invalid' :boutiqueIdVar.touched  &&! boutiqueIdVar.valid}" />
+                      <select [(ngModel)]="obj.boutiqueId" class="form-select"  ariia-label="Default select example" name="boutiqueId"  required maxlength="2" #boutiqueIdVar="ngModel"
+                        [ngClass]="{'is-invalid' :boutiqueIdVar.touched  &&! boutiqueIdVar.valid}">
+                        <option value=""> -- Id de la boutique -- </option>
+                        <option *ngFor="let item of boutiqueId" [value]="item">{{item.boutiqueId}}</option>
+                      </select>
                       <div class="invalid-feedback">
                         <span *ngIf="boutiqueIdVar.errors ?.['required']">
                           Entrer votre boutiqueId
@@ -102,10 +104,11 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="name" for="email">Categorie Id</label>
-                      
-                      <input id="prixAchat" name="categorieArticleId" type="number" class="form-control" placeholder="01"
-                        [(ngModel)]="obj.categorieArticleId" name="prixAchat" required prixAchat #categorieArticleIdVar="ngModel"
-                        [ngClass]="{'is-invalid' :categorieArticleIdVar.touched  &&! categorieArticleIdVar.valid}" />
+                      <select [(ngModel)]="obj.categorieArticleId" class="form-select" ariia-label="Default select example" name="categorieArticleId" required
+                        maxlength="2" #categorieArticleIdVar="ngModel" [ngClass]="{'is-invalid' :categorieArticleIdVar.touched  &&! categorieArticleIdVar.valid}">
+                        <option value=""> -- Id de la categorie article -- </option>
+                        <option *ngFor="let item of boutiqueId" [value]="item">{{item.categorieArticleId}}</option>
+                      </select>
                       <div class="invalid-feedback">
                         <span *ngIf="categorieArticleIdVar.errors ?.['required']">
                           Entrer l indentifiant du libelle

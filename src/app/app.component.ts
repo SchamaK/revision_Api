@@ -12,12 +12,16 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   obj: donnees =  new donnees;
   tabArt: Array<any> = [];
+  boutiqueId: Array<any> = [];
+  categoriId: Array<any> = [];
+
   constructor(private data:DataService) {
     this.getAll();
     this.getcatArt();
   }
    public saveData(registerForm: NgForm): void {
   }
+
   getcatArt() {
     let request = {
       "user": 1,
@@ -26,7 +30,7 @@ export class AppComponent {
       "index":0,
     "size":20
     }
-    this.data.post('categorieArticle/getByCriteria',request).subscribe((res: any) => {
+    this.data.post('categorieArticle/getByCriteria', request).subscribe((res: any) => {
     })
   }
   getAll() {
@@ -39,6 +43,10 @@ export class AppComponent {
     }
     this.data.post('article/getByCriteria', request).subscribe((res: any) => {
       this.tabArt = res.items;
+      this.boutiqueId = res.items;
+      this.categoriId = res.items
+      console.log(this.categoriId);
+
     })
   }
   Add():void {
@@ -100,22 +108,4 @@ export class AppComponent {
   Upd(article : any) {
      this.obj = { ...article };
   }
-  // Update() {
-  //   let request = {
-  //     "user": 1,
-  //   "datas": [
-  //     {
-  //       "libelle": this.obj.libelle,
-  //       "code": this.obj.code,
-  //       "prixAchat": this.obj.prixAchat,
-  //       "prixVente": this.obj.prixVente,
-  //       "categorieArticleId": this.obj.categorieArticleId,
-  //       "boutiqueId": this.obj.boutiqueId,
-  //     }
-  //   ]
-  //   }
-  //   this.data.post('article/update', request).subscribe((res: any) => {
-  //     console.log('vous avez modifier',res)
-  //   })
-  // }
 }

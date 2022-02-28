@@ -14,7 +14,7 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="code" for="code"> Code </label>
-                      <input id="code" name="obj.code" type="text" class="form-control" placeholder="M52-478" [(ngModel)]="obj.code"
+                      <input id="code" name="obj.code" type="text" class="form-control" placeholder="M52-478" autocomplete="off" [(ngModel)]="obj.code"
                         name="code" required maxlength="7" minlength="4" #codeVar="ngModel"
                         [ngClass]="{'is-invalid' :codeVar.touched  &&! codeVar.valid}" />
                       <div class="invalid-feedback">
@@ -33,7 +33,7 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="name" for="name">Libelle</label>
-                      <input id="name" name="name" class="form-control"  type="text" placeholder="Telephone" [(ngModel)]="obj.libelle"
+                      <input id="name" name="name" class="form-control"  type="text" placeholder="Telephone" autocomplete="off" [(ngModel)]="obj.libelle"
                         name="name" required minlength="3" appForbiddenName="name" #nameVar="ngModel"
                         [ngClass]="{'is-invalid' :nameVar.touched  &&! nameVar.valid}" />
                       <div class="invalid-feedback">
@@ -49,7 +49,7 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="prixAchat" for="prixAchat"> le Prix d achat</label>
-                      <input id="prixAchat" name="prixAchat" type="number" class="form-control" placeholder="ex: prix d achat"
+                      <input id="prixAchat" name="prixAchat" type="number" class="form-control" autocomplete="off" placeholder="ex: prix d achat"
                         [(ngModel)]="obj.prixAchat" name="prixAchat" required pattern="[0-9]*"
                         prixAchat #prixAchatVar="ngModel" [ngClass]="{'is-invalid' :prixAchatVar.touched  &&! prixAchatVar.valid}" />
                       <div class="invalid-feedback">
@@ -67,7 +67,7 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="name" for="prixVente"> Entrer le prix de vente </label>
-                      <input id="prixVente" name="prixVente" type="number" class="form-control"
+                      <input id="prixVente" name="prixVente" type="number" autocomplete="off" class="form-control"
                         placeholder="ex: prix de vente" [(ngModel)]="obj.prixVente" name="prixVente" required
                         prixVente #prixVenteVar="ngModel" pattern="[0-9]*"
                         [ngClass]="{'is-invalid' :prixVenteVar.touched  &&! prixVenteVar.valid}" />

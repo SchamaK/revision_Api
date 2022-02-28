@@ -49,7 +49,7 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="prixAchat" for="prixAchat"> le Prix d achat</label>
-                      <input id="prixAchat" name="prixAchat" type="number" class="form-control" placeholder="50000"
+                      <input id="prixAchat" name="prixAchat" type="number" class="form-control" placeholder="ex: prix d achat"
                         [(ngModel)]="obj.prixAchat" name="prixAchat" required pattern="[0-9]*"
                         prixAchat #prixAchatVar="ngModel" [ngClass]="{'is-invalid' :prixAchatVar.touched  &&! prixAchatVar.valid}" />
                       <div class="invalid-feedback">
@@ -66,9 +66,9 @@
                     </div>
 
                     <div class=" col-md-6 mb-3">
-                      <label id="name" for="prixVente"> Entrer le prix de vente</label>
+                      <label id="name" for="prixVente"> Entrer le prix de vente </label>
                       <input id="prixVente" name="prixVente" type="number" class="form-control"
-                        placeholder="5000" [(ngModel)]="obj.prixVente" name="prixVente" required
+                        placeholder="ex: prix de vente" [(ngModel)]="obj.prixVente" name="prixVente" required
                         prixVente #prixVenteVar="ngModel" pattern="[0-9]*"
                         [ngClass]="{'is-invalid' :prixVenteVar.touched  &&! prixVenteVar.valid}" />
                       <div class="invalid-feedback">
@@ -86,7 +86,7 @@
 
                    <div class=" col-md-6 mb-3">
                       <label id="name" for="boutiqueId">Id de la boutique</label>
-                      <input id="boutiqueId" name="listStud.boutiqueId" type="number" class="form-control" placeholder="boutiqueId"
+                      <input id="boutiqueId" name="boutiqueId" type="number" class="form-control" placeholder="boutiqueId"
                         [(ngModel)]="obj.boutiqueId" name="boutiqueId" required maxlength="2" #boutiqueIdVar="ngModel"
                         [ngClass]="{'is-invalid' :boutiqueIdVar.touched  &&! boutiqueIdVar.valid}" />
                       <div class="invalid-feedback">
@@ -102,6 +102,7 @@
 
                     <div class=" col-md-6 mb-3">
                       <label id="name" for="email">Categorie Id</label>
+                      
                       <input id="prixAchat" name="categorieArticleId" type="number" class="form-control" placeholder="01"
                         [(ngModel)]="obj.categorieArticleId" name="prixAchat" required prixAchat #categorieArticleIdVar="ngModel"
                         [ngClass]="{'is-invalid' :categorieArticleIdVar.touched  &&! categorieArticleIdVar.valid}" />
@@ -124,7 +125,7 @@
                         <div class="position">
                           <span class="p-4"><button type="reset" class="btn btn-info">Effacer</button> </span>
                           <span class=""> <button type="submit" class="btn btn-outline-info" [disabled]="!registerForm.valid"
-                              (click)="Add()">Sauvegarger</button> </span>
+                              (click)="Add()">Sauvegarder</button> </span>
                         </div>
                       </div>
                     </div>

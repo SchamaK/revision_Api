@@ -14,6 +14,7 @@ export class AppComponent {
   tabArt: Array<any> = [];
   boutiqueId: Array<any> = [];
   categoriId: Array<any> = [];
+  idselection!: Number;
 
   constructor(private data:DataService) {
     this.getAll();
@@ -90,6 +91,8 @@ export class AppComponent {
       ],
     }
     this.data.post('article/create', request).subscribe((res: any) => {
+    console.log("vous avez ajouter" , res );
+
       this.getAll();
       this.obj = new donnees();
     })

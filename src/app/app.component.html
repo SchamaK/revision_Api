@@ -85,11 +85,11 @@
                     </div>
 
                    <div class=" col-md-6 mb-3">
-                      <label id="name" for="boutiqueId">Id de la boutique</label>
+                      <label id="name" for="boutiqueId">libelle de la boutique</label>
                       <select [(ngModel)]="obj.boutiqueId" class="form-select"  ariia-label="Default select example" name="boutiqueId"  required maxlength="2" #boutiqueIdVar="ngModel"
                         [ngClass]="{'is-invalid' :boutiqueIdVar.touched  &&! boutiqueIdVar.valid}">
                         <option value=""> -- Id de la boutique -- </option>
-                        <option *ngFor="let item of boutiqueId" [value]="item">{{item.boutiqueId}}</option>
+                        <option *ngFor="let item of boutiqueId" [value]="item.boutiqueId">{{item.categorieArticleLibelle}}</option>
                       </select>
                       <div class="invalid-feedback">
                         <span *ngIf="boutiqueIdVar.errors ?.['required']">
@@ -103,11 +103,11 @@
 
 
                     <div class=" col-md-6 mb-3">
-                      <label id="name" for="email">Categorie Id</label>
+                      <label id="name" for="email">Categorie de l article </label>
                       <select [(ngModel)]="obj.categorieArticleId" class="form-select" ariia-label="Default select example" name="categorieArticleId" required
                         maxlength="2" #categorieArticleIdVar="ngModel" [ngClass]="{'is-invalid' :categorieArticleIdVar.touched  &&! categorieArticleIdVar.valid}">
                         <option value=""> -- Id de la categorie article -- </option>
-                        <option *ngFor="let item of boutiqueId" [value]="item">{{item.categorieArticleId}}</option>
+                        <option *ngFor="let item of boutiqueId" [value]="item.categorieArticleId">{{item.categorieArticleLibelle}}</option>
                       </select>
                       <div class="invalid-feedback">
                         <span *ngIf="categorieArticleIdVar.errors ?.['required']">

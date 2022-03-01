@@ -14,7 +14,6 @@ export class AppComponent {
   tabArt: Array<any> = [];
   boutiqueId: Array<any> = [];
   categoriId: Array<any> = [];
-  idselection!: Number;
 
   constructor(private data:DataService) {
     this.getAll();
